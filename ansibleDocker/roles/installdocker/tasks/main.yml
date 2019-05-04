@@ -1,0 +1,28 @@
+---
+    
+  - name: Install Pip which is needed for docker modules installation
+    apt:
+      name: python
+      state: present
+  - name: Instally basic apt packages which are needed for docker installation
+    apt:
+      name: "{{ item }}" 
+      update_cache: yes 
+      state: present
+    with_items:
+      - "aptitude"
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "curl"
+      - "software-properties-common"
+  - name: docker modules dependencies
+    pip:
+      name: docker-py
+  - name: Install docker Client engine 
+    apt:
+      name: "docker-ce"   
+      update_cahce: yes
+      state: present  
+          
+
+

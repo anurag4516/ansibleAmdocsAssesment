@@ -1,0 +1,13 @@
+---
+
+  - name: Check If maven is already installed or not
+    shell: "mvn -version | grep -w 'Apache Maven' | awk '{print $3}'"
+    register: maven_installed
+    debug: "msg={{maven_installed.stdout}}"
+ 
+  - name: install maven in hosts
+    become: yes
+    apt:
+      name: maven
+      state: latest
+      update_cache: yes
