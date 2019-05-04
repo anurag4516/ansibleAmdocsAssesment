@@ -1,3 +1,9 @@
-This role is used to create an admin user
-Who is basically able to run docker builds
-Username and Passwords are passed from group_var 
+This role installs docker in Ubuntu Platform
+
+Install Pip which is needed for docker modules installation
+
+Instally basic apt packages which are needed for docker installation
+
+docker modules dependencies
+
+Install docker Client engine 
